@@ -64,6 +64,7 @@ def main():
         paths.append(path)
 
     drawing = axi.Drawing(paths).sort_paths().simplify_paths(0.001)
+    drawing.render().write_to_png('out.png')
     axi.draw(drawing)
 
 if __name__ == '__main__':
