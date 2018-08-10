@@ -150,7 +150,7 @@ def main():
     rotated.dump_svg(os.path.join(dirname, 'out.svg'))
     im = rotated.render(
         scale=109 * 1, line_width=0.3/25.4,
-        show_axi_bounds=False, use_axi_bounds=False)
+        use_axi_bounds=False)
     im.write_to_png(os.path.join(dirname, 'out.png'))
 
 if __name__ == '__main__':

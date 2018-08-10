@@ -224,7 +224,7 @@ def single(number, rule, seed):
     d.dump(path + '.axi')
     im = rotated.render(
         scale=109 * 1, line_width=0.3/25.4,
-        show_axi_bounds=False, use_axi_bounds=False)
+        use_axi_bounds=False)
     im.write_to_png(path + '.png')
     # axi.draw(d)
 
@@ -267,7 +267,7 @@ def multiple():
     d = d.simplify_paths(0.001)
     print(d.bounds)
     d.dump('out.axi')
-    im = d.render(scale=109 * 1, line_width=0.3/25.4, show_axi_bounds=False)
+    im = d.render(scale=109 * 1, line_width=0.3/25.4)
     im.write_to_png('out.png')
     # axi.draw(d)
 

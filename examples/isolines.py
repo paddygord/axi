@@ -16,7 +16,7 @@ def prepare():
     print('rendering')
     im = d.render(
         scale=109 * 1, line_width=0.3/25.4,
-        show_axi_bounds=False, use_axi_bounds=False)
+        use_axi_bounds=False)
     im.write_to_png('isolines.png')
     d.dump('isolines.axi')
 
@@ -48,7 +48,7 @@ def main():
     d.add(title())
     im = d.render(
         scale=109 * 1, line_width=0.3/25.4,
-        show_axi_bounds=False, use_axi_bounds=False)
+        use_axi_bounds=False)
     im.write_to_png('out.png')
     d.dump('out.axi')
 
