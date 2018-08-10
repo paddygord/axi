@@ -5,7 +5,7 @@ import random
 H, W = axi.A3_SIZE
 
 def text(font):
-    text = ''.join(map(chr, range(32, 128)))
+    text = ''.join(map(chr, list(range(32, 128))))
     n = 96 // 3
     text = '\n'.join(text[i:i+n] for i in range(0, 96, n))
     d = font.wrap(text, W, 1.5)
@@ -121,13 +121,13 @@ def main():
     d = vertical_stack([d, lines()], 0.2)
     d = d.move(W / 2, 0, 0.5, 0)
     d = d.translate(0, 0)
-    print(d.bounds)
+    print((d.bounds))
 
     # d = d.sort_paths()
     # d = d.join_paths(0.01)
     d = d.simplify_paths(0.001)
     d = d.rotate(-90).move(0, W / 2, 0, 0.5)
-    print(d.bounds)
+    print((d.bounds))
 
     d.dump('out.axi')
     d.render(bounds=axi.A3_BOUNDS).write_to_png('out.png')

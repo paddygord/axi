@@ -64,9 +64,9 @@ def punchcard_from_csv(csv_path):
     d = axi.Drawing(paths)
     d = d.scale_to_fit(12, 8.5)
 
-    print 'joining paths'
+    print('joining paths')
     d = d.join_paths(0.02)
-    print 'simplifying paths'
+    print('simplifying paths')
     d = d.simplify_paths(0.001)
 
     d.render().write_to_png('out.png')

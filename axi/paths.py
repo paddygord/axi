@@ -8,7 +8,7 @@ def load_paths(filename):
     paths = []
     with open(filename) as fp:
         for line in fp:
-            points = filter(None, line.strip().split(';'))
+            points = [_f for _f in line.strip().split(';') if _f]
             if not points:
                 continue
             path = [tuple(map(float, x.split(','))) for x in points]

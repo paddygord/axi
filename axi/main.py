@@ -33,10 +33,10 @@ def main():
     elif command == 'off':
         device.disable_motors()
     elif command == 'move':
-        dx, dy = map(float, args)
+        dx, dy = list(map(float, args))
         device.move(dx, dy)
     elif command == 'goto':
-        x, y = map(float, args)
+        x, y = list(map(float, args))
         device.goto(x, y)
     elif command == 'draw':
         d = axi.Drawing.load(args[0])

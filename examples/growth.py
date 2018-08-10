@@ -104,7 +104,7 @@ def poisson_disc(x1, y1, x2, y2, r, n):
             break
         else:
             active.remove(record)
-    return grid.points.values(), pairs
+    return list(grid.points.values()), pairs
 
 def make_path(pairs):
     lookup = defaultdict(list)

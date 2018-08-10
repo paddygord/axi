@@ -1,4 +1,4 @@
-from __future__ import division
+
 
 import axi
 import numpy as np
@@ -69,12 +69,12 @@ def main():
     lines = data.split('\n')
     lines = [x.strip() for x in lines]
     lines = [x.strip(',') for x in lines]
-    lines = filter(None, lines)
+    lines = [_f for _f in lines if _f]
 
     # read values and transpose
-    data = [map(int, line.split(',')) for line in lines]
+    data = [list(map(int, line.split(','))) for line in lines]
     data = np.transpose(data)
-    print '%d series in file' % len(data)
+    print('%d series in file' % len(data))
 
     # trim to SECONDS worth of data
     n = len(data[0])
@@ -86,7 +86,7 @@ def main():
 
     # remove addresses with too few values
     data = [x for x in data if len(set(x)) > MIN_CHANGES]
-    print '%d series that changed' % len(data)
+    print('%d series that changed' % len(data))
 
     # remove duplicate series
     if UNIQUE:
@@ -99,16 +99,16 @@ def main():
             seen.add(k)
             new_data.append(x)
         data = new_data
-        print '%d unique series' % len(data)
+        print('%d unique series' % len(data))
 
     # delete repetitive stuff
     # del data[136:136+8*14]
 
     # trim so all rows are full
     data = data[:int((len(data) // COLUMNS) * COLUMNS)]
-    print '%d series after trimming' % len(data)
+    print('%d series after trimming' % len(data))
 
-    print '%d data points each' % len(data[0])
+    print('%d data points each' % len(data[0]))
 
     # create sparklines in a grid pattern
     paths = []
@@ -137,7 +137,7 @@ def main():
     d = d.center(12, 8.5)
     d.add(label())
 
-    print d.bounds
+    print(d.bounds)
 
     # save outputs
     dirname = 'nes/%s' % NUMBER

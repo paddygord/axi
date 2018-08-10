@@ -32,7 +32,7 @@ class Generation(object):
                 if (dx or dy) and (x + dx, y + dy) in self.grid:
                     count += 1
         return count
-    def next(self):
+    def __next__(self):
         xs = [x for x, y in self.grid]
         ys = [y for x, y in self.grid]
         minx = min(xs) - 1
@@ -41,8 +41,8 @@ class Generation(object):
         maxy = max(ys) + 1
         grid = set()
         keep, spawn = RULE.split('/')
-        keep = map(int, keep)
-        spawn = map(int, spawn)
+        keep = list(map(int, keep))
+        spawn = list(map(int, spawn))
         for y in range(miny, maxy + 1):
             for x in range(minx, maxx + 1):
                 n = self.count_neighbors(x, y)
@@ -102,7 +102,7 @@ def main(seed):
     g.randomize(24, 24, 0.3, seed)
     for i in range(n + 10):
         gs.append(g)
-        g = g.next()
+        g = next(g)
     d = lines(gs[-n:])
     d = d.rotate_and_scale_to_fit(12, 8.5, step=90)
     d = d.sort_paths().join_paths(0.02)

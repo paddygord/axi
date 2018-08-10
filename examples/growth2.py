@@ -81,7 +81,7 @@ def poisson_disc(layer, x1, y1, x2, y2, r, n):
         # y = (y1 + y2) / 2.0
         a = random.random() * 2 * pi
         if grid.insert(x, y):
-            print(x, y)
+            print((x, y))
             heapq.heappush(active, (-score, x, y, a, 0, 0, g))
             g += 1
     pairs = []
@@ -109,7 +109,7 @@ def poisson_disc(layer, x1, y1, x2, y2, r, n):
             break
         else:
             heapq.heappop(active)
-    return grid.points.values(), pairs
+    return list(grid.points.values()), pairs
 
 def make_path(pairs):
     lookup = defaultdict(list)

@@ -95,7 +95,7 @@ class Bar(object):
 
 if __name__ == '__main__':
     bar = Bar()
-    for i in bar(range(3517)):
+    for i in bar(list(range(3517))):
         time.sleep(0.001)
     with Bar(1) as bar:
         for i in range(100):

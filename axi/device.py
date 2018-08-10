@@ -1,4 +1,4 @@
-from __future__ import division, print_function
+
 
 import time
 
@@ -56,7 +56,7 @@ class Device(object):
         self.jog_acceleration = JOG_ACCELERATION
         self.jog_max_velocity = JOG_MAX_VELOCITY
 
-        for k, v in kwargs.items():
+        for k, v in list(kwargs.items()):
             setattr(self, k, v)
 
         self.error = (0, 0) # accumulated step error
@@ -134,7 +134,7 @@ class Device(object):
     def read_position(self):
         response = self.command('QS')
         self.readline()
-        a, b = map(int, response.split(','))
+        a, b = list(map(int, response.split(',')))
         a /= self.steps_per_unit
         b /= self.steps_per_unit
         y = (a - b) / 2
