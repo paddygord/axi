@@ -51,7 +51,7 @@ def pad(rows):
     result = []
     n = len(max(rows, key=len))
     for row in rows:
-        p = (n - len(row)) / 2 + 1
+        p = (n - len(row)) // 2 + 1
         row = '.' * p + row + '.' * p
         result.append(row)
     return result
@@ -62,7 +62,7 @@ def trim(rows):
 def crop(rows, n):
     w = len(rows[0])
     h = len(rows)
-    i = w / 2 - n / 2
+    i = w // 2 - n // 2
     j = i + n
     return [row[i:j] for row in rows]
 

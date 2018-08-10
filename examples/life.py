@@ -96,7 +96,7 @@ def lines(generations):
     return axi.Drawing(paths)
 
 def main(seed):
-    n = 90/2
+    n = 90//2
     gs = []
     g = Generation()
     g.randomize(24, 24, 0.3, seed)
