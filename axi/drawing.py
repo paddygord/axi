@@ -16,6 +16,8 @@ V3_BOUNDS = (0, 0, 12, 8.5)
 
 A3_SIZE = (16.93, 11.69)
 A3_BOUNDS = (0, 0, 16.93, 11.69)
+A4_SIZE = (11.69, 8.27)
+A4_BOUNDS = (0, 0, 11.69, 8.27)
 
 class Drawing(object):
     def __init__(self, paths=None):
